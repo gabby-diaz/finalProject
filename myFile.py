@@ -106,7 +106,6 @@ dnaSeq = readfile(file_path)
 
 #printing the result
 print(DtoR(dnaSeq))
-
 #Complementing a strand of DNA -REVC
 
 def Rcompliment(dnaSeq):
@@ -118,12 +117,11 @@ def Rcompliment(dnaSeq):
     #reverse the dna sequence
     dnaReverse = dnaSeq[::-1]
 
-    #find the compliments
-    Cnucleotide = {'A':'T', 'G':'C','T':'A','C':'G'}
+    DNAreverseCompliment= {'A':'T', 'A':'T', 'C':'G','G':'C'}
 
     Rcompliment = ''
     for nucleotide in dnaReverse:
-        Rcompliment += Cnucleotide[nucleotide]
+       Rcompliment += DNAreverseCompliment[nucleotide]
 
     return(Rcompliment)
 
@@ -140,10 +138,32 @@ def readfile(file_path):
 if __name__=='__main__':
     file_path ='rosalind_dna.txt'
 	#reading the data
-dnaSeq = readfile(file_path)
+    dnaSeq = readfile(file_path)
 
 #printing the result
 print(Rcompliment(dnaSeq))
+
+# 1-18-22
+#RNA 2 Prot
+
+def dna2protein(rnaSeq):
+  '''Given a rnaSeq, output corresponding aa chain.
+
+  Input: str of rna sequence 
+  Output: str of protein
+  '''
+  #variables 
+  protSequence = ''
+  i=0
+  print(type(rnaSeq))
+  print(type(i))
+  while i < (len(dnaSeq)-2):
+   codon = dnaSeq[i:i+3] 
+   aminoacid = codonTableD[codon]
+   acidSequence += aminoacid 
+   i += 3
+  return protSequence 
+
 
 	
 	
